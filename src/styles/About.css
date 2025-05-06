@@ -1,0 +1,72 @@
+.about-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.company-intro {
+  margin-bottom: 40px;
+}
+
+.company-intro h2 {
+  margin-bottom: 20px;
+}
+
+.company-intro p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+}
+
+.company-history {
+  margin-bottom: 60px;
+}
+
+.company-history h2 {
+  margin-bottom: 30px;
+}
+
+.team-section {
+  margin-bottom: 60px;
+}
+
+.team-section h2 {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.team-card {
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.team-card .ant-avatar {
+  margin-bottom: 16px;
+  background-color: #1890ff;
+}
+
+.team-card h4 {
+  margin-bottom: 4px;
+}
+
+.team-card h5 {
+  margin-bottom: 16px;
+  color: #666;
+}
+
+.team-card p {
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .team-card {
+    margin-bottom: 20px;
+  }
+} 

@@ -1,0 +1,362 @@
+.main-layout {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* 头部样式 */
+.header {
+  background-color: transparent;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0;
+  height: 100px;
+  line-height: 100px;
+}
+
+.header-container {
+  position: fixed;
+  background-color: transparent;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 40px;
+  width: 100%;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+/* 滚动时的导航栏样式 */
+.header-scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 15px 40px;
+}
+
+.header-scrolled .desktop-menu-items {
+  background-color: transparent;
+}
+
+.header-scrolled .desktop-menu-items a {
+  color: #333;
+}
+
+.header-scrolled .desktop-menu-items a:hover {
+  background-color: rgba(27, 82, 248, 0.1);
+  color: #1b52f8;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-right: 40px;
+  white-space: nowrap;
+}
+
+.logo-image {
+  height: 36px;
+  margin-right: 10px;
+}
+
+.company-name {
+  color: #333;
+  font-size: 1.2rem;
+}
+
+/* 导航菜单 */
+.desktop-menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.desktop-menu .ant-menu {
+  border-bottom: none;
+  background: transparent;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  height: 70px;
+  line-height: 70px;
+}
+
+.desktop-menu .ant-menu-item {
+  padding: 0 16px;
+  height: 70px;
+  line-height: 70px;
+}
+
+.desktop-menu .ant-menu-item-selected {
+  color: #1b52f8;
+  font-weight: bold;
+}
+
+.desktop-menu .ant-menu-item::after {
+  display: none;
+}
+
+.desktop-menu .ant-menu-item:hover {
+  color: #1b52f8;
+}
+
+.desktop-menu .ant-menu-item a {
+  color: inherit;
+}
+
+.desktop-menu-items {
+  display: flex;
+  gap: 20px;
+  background-color: rgba(0, 21, 41, 0.8);
+  padding: 16px 16px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.desktop-menu-items a {
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.desktop-menu-items a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.desktop-menu-items a.active-nav-link {
+  background-color: rgba(255, 255, 255, 0.35);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.header-scrolled .desktop-menu-items a.active-nav-link {
+  background-color: rgba(27, 82, 248, 0.15);
+  color: #1b52f8;
+  font-weight: 600;
+  text-shadow: none;
+  box-shadow: 0 2px 8px rgba(27, 82, 248, 0.1);
+}
+
+/* 头部操作区域 */
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.download-button {
+  margin-right: 16px;
+  font-size: 14px;
+  background-color: #0fa !important;
+  color: #333 !important;
+  font-weight: 700;
+  height: 53px;
+  border-radius: 12px;
+  padding: 0 28px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease !important;
+  box-shadow: none !important;
+}
+
+.download-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  transition: all 0.5s ease;
+  z-index: 1;
+  opacity: 0.95;
+}
+
+.download-button span {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+}
+
+.download-button svg {
+  margin-right: 8px;
+  position: relative;
+  z-index: 2;
+}
+
+.download-button:hover {
+  color: #0fa !important;
+}
+
+.download-button:hover::before {
+  left: 0;
+}
+
+.download-button:focus, 
+.download-button:active {
+  border: none;
+}
+
+.mobile-menu-button {
+  display: none;
+}
+
+/* 抽屉菜单内部样式 */
+.drawer-actions {
+  margin-top: 24px;
+  padding: 0 16px;
+}
+
+/* 内容区域 */
+.content {
+  padding: 0;
+  background-color: #fff;
+  width: 100%;
+}
+
+.footer {
+  padding: 40px 50px 24px;
+  background-color: #001529;
+  color: #fff;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 20px;
+  padding-right: 20px;
+}
+
+.footer-section h3 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.footer-section p {
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.footer-section ul {
+  padding: 0;
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: rgba(255, 255, 255, 0.65);
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #1b52f8;
+}
+
+.social-icons {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.65);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.social-icon:hover {
+  background-color: #1b52f8;
+  color: #fff;
+}
+
+.copyright {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* 响应式设计 */
+@media (max-width: 990px) {
+  .header-container {
+    padding: 15px 20px;
+  }
+  
+  .desktop-menu {
+    display: none;
+  }
+  
+  .mobile-menu-button {
+    display: block;
+    margin-left: 16px;
+  }
+  
+  .company-name {
+    display: none;
+  }
+  
+  .logo-image {
+    height: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+  }
+  
+  .footer-section {
+    width: 100%;
+    padding-right: 0;
+  }
+  
+  .header-container {
+    padding: 10px 16px;
+  }
+  
+  .download-button {
+    display: none;
+  }
+  
+  .footer {
+    padding: 30px 20px 20px;
+  }
+  
+  .logo-image {
+    height: 24px;
+  }
+} 
