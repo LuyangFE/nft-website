@@ -168,7 +168,7 @@ const Home: React.FC = () => {
                 </div>
                 <div className="timeline-content">
                   <div className="timeline-img">
-                    <img src={event.image} alt={`${event.year}年${event.month}事件`} />
+                    <img style={{objectFit: 'cover'}} src={event.image} alt={`${event.year}年${event.month}事件`} />
                   </div>
                   <h3 className="timeline-title">{event.title}</h3>
                   <p className="timeline-desc">{event.description}</p>
@@ -214,9 +214,18 @@ const Home: React.FC = () => {
         </div>
         
         <div className="partners-grid">
+          {/* 第一组合作伙伴 */}
           {partners.map((partner, index) => (
-            <div key={index} className="partner-logo">
-              {partner.name}
+            <div key={`first-${index}`} className="partner-logo">
+              <img src={partner.logo} alt={partner.name} />
+              <div className="partner-name">{partner.name}</div>
+            </div>
+          ))}
+          {/* 复制一组合作伙伴，确保无缝衔接 */}
+          {partners.map((partner, index) => (
+            <div key={`second-${index}`} className="partner-logo">
+              <img src={partner.logo} alt={partner.name} />
+              <div className="partner-name">{partner.name}</div>
             </div>
           ))}
         </div>

@@ -738,48 +738,193 @@
 
 /* 合作伙伴 */
 .partners {
-  /* 移除背景色设置，使用section-odd */
+  position: relative;
+  overflow: hidden;
 }
 
 .partners-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  display: flex;
   gap: 24px;
   margin-top: 40px;
+  animation: scrollPartners 30s linear infinite;
+  width: max-content;
+}
+
+/* 复制一组合作伙伴，确保无缝衔接 */
+.partners-grid::after {
+  content: '';
+  display: flex;
+  gap: 24px;
+  width: max-content;
+}
+
+@keyframes scrollPartners {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.partners-grid:hover {
+  animation-play-state: paused;
+}
+
+/* 添加渐变遮罩效果 */
+.partners::before,
+.partners::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.partners::before {
+  left: 0;
+  background: linear-gradient(to right, 
+    var(--section-bg-color, #fff) 0%,
+    transparent 100%
+  );
+}
+
+.partners::after {
+  right: 0;
+  background: linear-gradient(to left, 
+    var(--section-bg-color, #fff) 0%,
+    transparent 100%
+  );
+}
+
+/* 深色背景下的遮罩颜色 */
+.section-even .partners::before,
+.section-even .partners::after {
+  --section-bg-color: #1a1a1a;
+}
+
+/* 浅色背景下的遮罩颜色 */
+.section-odd .partners::before,
+.section-odd .partners::after {
+  --section-bg-color: #ffffff;
 }
 
 .partner-logo {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100px;
-  border-radius: 8px;
+  height: 120px;
+  width: 200px;
+  border-radius: 12px;
   transition: all 0.3s ease;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.partner-logo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.partner-logo:hover::before {
+  opacity: 1;
+}
+
+.partner-logo img {
+  max-width: 80%;
+  max-height: 60px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  filter: grayscale(100%);
+}
+
+.partner-logo:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.partner-name {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: center;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.partner-logo:hover .partner-name {
+  opacity: 1;
+  transform: translateY(-2px);
 }
 
 .section-odd .partner-logo {
   background-color: #fff;
   border: 1px solid #eaeaea;
-  color: #333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .section-even .partner-logo {
-  background-color: #222;
-  border: 1px solid #333;
-  color: #fff;
-}
-
-.partner-logo:hover {
-  transform: translateY(-5px);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .section-odd .partner-logo:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-color: #1b52f8;
 }
 
 .section-even .partner-logo:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  background-color: #2a2a2a;
+  border-color: rgba(27, 82, 248, 0.5);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .partner-logo {
+    height: 100px;
+    width: 160px;
+    padding: 15px;
+  }
+  
+  .partner-logo img {
+    max-height: 50px;
+  }
+  
+  .partner-name {
+    font-size: 0.8rem;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 576px) {
+  .partner-logo {
+    height: 90px;
+    width: 140px;
+    padding: 12px;
+  }
+  
+  .partner-logo img {
+    max-height: 40px;
+  }
+  
+  .partner-name {
+    font-size: 0.75rem;
+    margin-top: 6px;
+  }
 }
 
 .index-slogen {
